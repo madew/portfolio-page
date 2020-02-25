@@ -1,5 +1,199 @@
+// Colors
+$background: #16161a;
+$headline: #fffffe;
+$paragraph: #94a1b2;
+$button: #7f5af0;
+$button-text: #fffffe;
+$stroke: #010101;
+$main: #fffffe;
+$highlight: #7f5af0;
+$secondary: #72757e;
+$tertiary: #2cb67d;
 
+// Breakpoints
+$phone: 425px;
+$tablet: 768px;
+$desktop: 1366px;
+$LGdesktop: 1920px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: #16161a;
+  background-color: $background;
+  color: $headline;
+  font-family: 'Roboto', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// helpers
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+// main css
+.wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+  display: flex;
+  padding-top: 48px;
+}
+
+.nav {
+  flex: 1;
+
+  &__list {
+    position: fixed;
+    top: 48px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    font-size: 1.125rem;
+    color: $secondary;
+    text-decoration: none;
+    transition: color 0.5s ease;
+    &:hover {
+      color: $tertiary;
+    }
+  }
+}
+
+.content {
+  flex: 3;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo a {
+    color: $headline;
+    font-size: 2rem;
+    font-weight: 700;
+
+    & span {
+      color: $highlight;
+      margin-left: 3px;
+      transition: color 0.5s ease;
+    }
+    &:hover {
+      & span {
+        color: $tertiary;
+      }
+    }
+  }
+
+  &__cta {
+    a {
+      color: $button;
+      text-decoration: underline;
+      transition: color 0.5s ease;
+      &:hover {
+        color: $tertiary;
+      }
+    }
+  }
+}
+
+.hero {
+  padding-top: 100px;
+  height: calc(100vh - 48px - (2rem + 6px) - 1.75rem);
+  &__heading {
+    color: $headline;
+    font-size: 4rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.about {
+  &__heading {
+    color: $paragraph;
+    font-size: 1.75rem;
+    margin-bottom: 90px;
+  }
+
+  &__skill {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__title {
+    flex: 2;
+    color: $highlight;
+
+    &--highlight {
+      color: $tertiary;
+    }
+  }
+
+  &__desc {
+    flex: 3;
+    color: $paragraph;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+}
+
+.projects {
+  margin-top: 250px;
+
+  &__heading {
+    color: $paragraph;
+    margin-bottom: 90px;
+    font-size: 1.75rem;
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 65px;
+  }
+
+  &__item {
+    color: $paragraph;
+
+    &:nth-child(even) {
+      margin-top: 65px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &:last-child {
+      p {
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: $tertiary;
+        text-decoration: underline;
+
+        transition: color 0.5s ease;
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
 }
