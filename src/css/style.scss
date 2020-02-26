@@ -89,11 +89,11 @@ a {
     & span {
       color: $highlight;
       margin-left: 3px;
-      transition: color 0.5s ease;
+      //transition: color 0.5s ease;
     }
     &:hover {
       & span {
-        color: $tertiary;
+        animation: pulsingDot 1.5s ease-in-out infinite;
       }
     }
   }
@@ -107,6 +107,20 @@ a {
         color: $tertiary;
       }
     }
+  }
+}
+
+@keyframes pulsingDot {
+  0% {
+    color: $highlight;
+  }
+
+  50% {
+    color: $tertiary;
+  }
+
+  100% {
+    color: $highlight;
   }
 }
 
