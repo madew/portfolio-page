@@ -284,7 +284,7 @@ a {
   }
 }
 
-.footer {
+.contact {
   background-color: $background-secondary;
   margin-top: 120px;
   padding: 120px 0;
@@ -367,19 +367,22 @@ a {
   & .card {
     display: flex;
     flex-direction: column;
-    max-width: 200px;
-    background-color: $background;
-    padding: 20px 15px 40px;
-    border-radius: 5px;
-    // height: 250px;
+    min-width: 75%;
 
-    &:not(:last-child) {
-      margin-right: 40px;
-    }
+    background-color: $background;
+    padding: 40px;
+    border-radius: 5px;
 
     &__icon {
-      color: $highlight;
+      color: $secondary;
       margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      font-size: 1.125rem;
+
+      & img {
+        margin-right: 5px;
+      }
     }
 
     &__heading {
@@ -391,6 +394,73 @@ a {
 
     &__description {
       color: $secondary;
+    }
+
+    & form {
+      width: 100%;
+      text-align: right;
+
+      & .form-group {
+        text-align: left;
+      }
+
+      label {
+        color: $secondary;
+        font-size: 0.85rem;
+      }
+
+      input {
+        width: 100%;
+        margin: 5px 0 30px;
+        background: none;
+        outline: none;
+        border: none;
+        color: $main;
+        font-size: 1.5rem;
+        font-weight: 100;
+        border-bottom: 1px solid $secondary;
+        transition: border-bottom 0.5s ease;
+
+        &:focus {
+          border-bottom: 1px solid $highlight;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        margin: 5px 0 0;
+        background: none;
+        outline: none;
+        border: none;
+        color: $main;
+        font-size: 1.15rem;
+        font-weight: 100;
+        border-bottom: 1px solid $secondary;
+        transition: border-bottom 0.5s ease;
+
+        resize: none;
+
+        &:focus {
+          border-bottom: 1px solid $highlight;
+        }
+      }
+
+      button {
+        background-color: $highlight;
+        color: $main;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 10px 20px;
+        border-radius: 3px;
+        border: none;
+        margin-top: 40px;
+        transition: background-color 0.5s ease;
+
+        &:hover,
+        &:active {
+          background-color: $tertiary;
+        }
+      }
     }
   }
 }
