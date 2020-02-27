@@ -14,6 +14,11 @@
     <title>Portfolio</title>
   </head>
   <body>
+    <!-- <div class="intro-overlay">
+        <div class="intro-overlay__line"></div>
+        <div class="intro-overlay__line"></div>
+        <div class="intro-overlay__line"></div>
+    </div> -->
     <div class="wrapper">
       <nav class="nav">
         <ul class="nav__list">
@@ -23,7 +28,9 @@
           <li class="nav__item">
             <a class="nav__link" href="#projects">Completed Projects</a>
           </li>
-          <li class="nav__item"><a class="nav__link" href="#about-me">About Me</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="#about-me">About Me</a>
+          </li>
           <li class="nav__item">
             <a class="nav__link" href="#consulting">Consulting & Concepts</a>
           </li>
@@ -41,9 +48,9 @@
         </header>
         <section class="hero">
           <h1 class="hero__heading">
-            <span>Full Stack</span>
-            <span>Digital Designer</span>
-            <span>& Developer</span>
+            <div class="hero__line"><span>Full Stack</span></div>
+            <div class="hero__line"><span>Digital Designer</span></div>
+            <div class="hero__line"><span>& Developer</span></div>
           </h1>
         </section>
         <section id="about" class="about">
@@ -110,7 +117,7 @@
             </div>
           </div>
         </section>
-        <section class="about-me">
+        <section id="about-me" class="about-me">
           <h2 class="about-me__heading">
             About me
           </h2>
@@ -126,11 +133,11 @@
         </section>
       </main>
     </div>
-    <footer class="footer">
+    <section id="consulting" class="footer">
       <div class="footer__wrapper">
 
         <div class="social">
-          <h3 class="social__heading">Social</h3>
+          <h4 class="social__heading">Social</h4>
           <ul class="social__links">
             <li class="social__item"><a class="social__link" href="/">Medium Articles</a></li>
             <li class="social__item"><a class="social__link" href="/">Twitter</a></li>
@@ -172,6 +179,8 @@
 
         </div>
       </div>
-    </footer>
+    </section>
+    <script src="js/scroll-observer.js"></script>
+    <!-- <script src="js/animation.js"></script> -->
   </body>
 </html>
