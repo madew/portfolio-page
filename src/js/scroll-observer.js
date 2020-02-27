@@ -16,7 +16,6 @@ function toggleActiveClassToMenuLink(entry) {
 
     links.forEach(link => {
       if (link.hash === `#${id}`) {
-        console.log(link);
         link.classList.add('active');
       } else {
         link.classList.remove('active');
