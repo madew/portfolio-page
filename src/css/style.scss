@@ -261,7 +261,7 @@ a {
 }
 
 .about-me {
-  margin-top: 250px;
+  padding: 250px 0 150px;
   display: flex;
 
   &__heading {
@@ -305,12 +305,22 @@ a {
       margin-bottom: 2rem;
     }
 
-    &__item:not(:last-child) {
-      margin-bottom: 2rem;
+    &__item {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+      img {
+        margin-right: 10px;
+      }
     }
 
     &__link {
-      font-size: 1.125rem;
+      font-size: 1rem;
+      font-weight: 100;
       color: $secondary;
       text-decoration: none;
       transition: color 0.5s ease;
