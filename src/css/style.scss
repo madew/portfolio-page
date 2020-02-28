@@ -1,21 +1,4 @@
-// Colors
-$background: #16161a;
-$background-secondary: #242629;
-$headline: #fffffe;
-$paragraph: #94a1b2;
-$button: #7f5af0;
-$button-text: #fffffe;
-$stroke: #010101;
-$main: #fffffe;
-$highlight: #7f5af0;
-$secondary: #72757e;
-$tertiary: #2cb67d;
-
-// Breakpoints
-$phone: 425px;
-$tablet: 768px;
-$desktop: 1366px;
-$LGdesktop: 1920px;
+@import 'variables.scss';
 
 * {
   margin: 0;
@@ -46,17 +29,17 @@ a {
   color: $highlight !important;
 }
 
-// helpers
-.mb-60 {
-  margin-bottom: 60px;
-}
-
 // main css
 .wrapper {
   margin: 0 auto;
-  max-width: 1024px;
-  display: flex;
-  padding-top: 48px;
+  padding-top: 24px;
+
+  @media (min-width: $desktop) {
+    margin: 0 auto;
+    padding-top: 48px;
+    max-width: 1024px;
+    display: flex;
+  }
 }
 
 // intro
@@ -69,23 +52,41 @@ a {
   &__line {
     position: absolute;
     height: 100%;
-    width: 33.3333vw;
+    width: 100%;
     background: $main;
     bottom: 0;
     left: 0;
     right: 0;
 
     &:nth-child(2) {
-      left: 33.3333%;
+      display: none;
+
+      @media (min-width: $desktop) {
+        display: block;
+        left: 33.3333%;
+      }
     }
     &:nth-child(3) {
-      left: 66.6666%;
+      display: none;
+
+      @media (min-width: $desktop) {
+        display: block;
+        left: 66.6666%;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      width: 33.3333%;
     }
   }
 }
 
 .nav {
-  flex: 1;
+  display: none;
+  @media (min-width: $desktop) {
+    display: block;
+    flex: 1;
+  }
 
   &__list {
     position: fixed;
@@ -108,13 +109,19 @@ a {
 }
 
 .content {
-  flex: 2;
+  padding: 0 1.25rem;
+
+  @media (min-width: $desktop) {
+    padding: 0;
+    flex: 2;
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   &__logo a {
     color: $headline;
     font-size: 2rem;
@@ -133,12 +140,19 @@ a {
   }
 
   &__cta {
-    a {
+    button {
+      font-size: 1.15rem;
       color: $button;
       text-decoration: underline;
       transition: color 0.5s ease;
+      border: none;
+      background: none;
       &:hover {
         color: $tertiary;
+      }
+
+      @media (min-width: $desktop) {
+        font-size: 1rem;
       }
     }
   }
@@ -161,9 +175,10 @@ a {
 .hero {
   padding-top: 100px;
   height: calc(100vh - 48px - (2rem + 6px) - 1.75rem);
+
   &__heading {
     color: $main;
-    font-size: 4rem;
+    font-size: 2.7rem;
     font-weight: 700;
     display: flex;
     flex-direction: column;
@@ -171,14 +186,22 @@ a {
     mix-blend-mode: difference;
     position: relative;
     z-index: 10;
+
+    @media (min-width: $desktop) {
+      font-size: 4rem;
+    }
   }
   &__line {
     overflow: hidden;
-    height: 72px;
+    height: 56px;
     position: relative;
     width: 100%;
     & span {
       position: absolute;
+    }
+
+    @media (min-width: $desktop) {
+      height: 72px;
     }
   }
 }
@@ -192,15 +215,30 @@ a {
 
   &__skill {
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: $desktop) {
+      flex-direction: row;
+    }
 
     &:not(:last-child) {
-      margin-bottom: 90px;
+      margin-bottom: 60px;
+      @media (min-width: $desktop) {
+        margin-bottom: 90px;
+      }
     }
   }
 
   &__title {
     flex: 2;
     color: $highlight;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    @media (min-width: $desktop) {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
 
     &--highlight {
       color: $tertiary;
@@ -212,6 +250,11 @@ a {
     color: $paragraph;
     font-weight: 300;
     line-height: 1.5;
+    font-size: 1.25rem;
+
+    @media (min-width: $desktop) {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -225,8 +268,12 @@ a {
   }
 
   &__wrap {
-    column-count: 2;
-    column-gap: 40px;
+    column-count: 1;
+
+    @media (min-width: $desktop) {
+      column-count: 2;
+      column-gap: 40px;
+    }
   }
 
   &__item {
@@ -238,22 +285,35 @@ a {
       width: 100%;
     }
 
-    &:nth-child(4) {
-      margin-top: 60px;
+    @media (min-width: $desktop) {
+      &:nth-child(4) {
+        margin-top: 60px;
+      }
     }
 
     &:last-child {
       p {
         margin-bottom: 20px;
+        line-height: 1.5;
+        font-size: 1.25rem;
+
+        @media (min-width: $desktop) {
+          font-size: 1rem;
+        }
       }
 
       a {
+        font-size: 1.25rem;
         color: $tertiary;
         text-decoration: underline;
 
         transition: color 0.5s ease;
         &:hover {
           color: $highlight;
+        }
+
+        @media (min-width: $desktop) {
+          font-size: 1rem;
         }
       }
     }
@@ -263,12 +323,18 @@ a {
 .about-me {
   padding: 250px 0 150px;
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+  }
 
   &__heading {
     flex: 1;
 
     font-size: 1.75rem;
     color: $main;
+    margin-bottom: 1.25rem;
   }
 
   &__desc {
@@ -277,9 +343,14 @@ a {
     color: $paragraph;
     font-weight: 300;
     line-height: 1.5;
+    font-size: 1.25rem;
 
     & p:not(:last-child) {
       margin-bottom: 30px;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 1rem;
     }
   }
 }
@@ -287,28 +358,49 @@ a {
 .contact {
   background-color: $background-secondary;
   margin-top: 120px;
-  padding: 120px 0;
+  padding: 120px 1.25rem;
+
+  @media (min-width: $desktop) {
+    padding: 120px 0;
+  }
 
   &__wrapper {
     margin: 0 auto;
-    max-width: 1024px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column-reverse;
+
+    @media (min-width: $desktop) {
+      flex-direction: row;
+      font-size: 1rem;
+      max-width: 1024px;
+      align-items: flex-end;
+    }
   }
 
   .social {
     flex: 1;
+    margin-top: 60px;
+
+    @media (min-width: $desktop) {
+      margin-top: 0px;
+    }
 
     &__heading {
       color: $paragraph;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
+      text-align: center;
+
+      @media (min-width: $desktop) {
+        font-size: 1.25rem;
+        text-align: left;
+      }
     }
 
     &__item {
       display: flex;
       align-items: center;
-
+      justify-content: center;
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
@@ -316,16 +408,25 @@ a {
       img {
         margin-right: 10px;
       }
+
+      @media (min-width: $desktop) {
+        justify-content: left;
+      }
     }
 
     &__link {
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: 100;
       color: $secondary;
       text-decoration: none;
       transition: color 0.5s ease;
       &:hover {
         color: $tertiary;
+      }
+
+      @media (min-width: $desktop) {
+        justify-content: left;
+        font-size: 1rem;
       }
     }
   }
@@ -353,8 +454,13 @@ a {
       color: $button;
       text-decoration: underline;
       transition: color 0.5s ease;
+      font-size: 1.25rem;
       &:hover {
         color: $tertiary;
+      }
+
+      @media (min-width: $desktop) {
+        font-size: 1rem;
       }
     }
   }
@@ -367,18 +473,26 @@ a {
   & .card {
     display: flex;
     flex-direction: column;
-    min-width: 75%;
+    width: 100%;
 
     background-color: $background;
     padding: 40px;
     border-radius: 5px;
+
+    @media (min-width: $desktop) {
+      width: 75%;
+    }
 
     &__icon {
       color: $secondary;
       margin-bottom: 40px;
       display: flex;
       align-items: center;
-      font-size: 1.125rem;
+      font-size: 1.5rem;
+
+      @media (min-width: $desktop) {
+        font-size: 1.125rem;
+      }
 
       & img {
         margin-right: 5px;
@@ -398,7 +512,11 @@ a {
 
     & form {
       width: 100%;
-      text-align: right;
+      text-align: center;
+
+      @media (min-width: $desktop) {
+        text-align: right;
+      }
 
       & .form-group {
         text-align: left;
@@ -406,7 +524,10 @@ a {
 
       label {
         color: $secondary;
-        font-size: 0.85rem;
+        font-size: 1.25rem;
+        @media (min-width: $desktop) {
+          font-size: 0.85rem;
+        }
       }
 
       input {
@@ -433,15 +554,18 @@ a {
         outline: none;
         border: none;
         color: $main;
-        font-size: 1.15rem;
+        font-size: 1.35rem;
         font-weight: 100;
         border-bottom: 1px solid #434547;
         transition: border-bottom 0.5s ease;
-
         resize: none;
 
         &:focus {
           border-bottom: 1px solid $highlight;
+        }
+
+        @media (min-width: $desktop) {
+          font-size: 1.15rem;
         }
       }
 
