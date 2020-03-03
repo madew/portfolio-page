@@ -14,6 +14,7 @@ body {
   background-color: $background;
   color: $headline;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
   // overflow-y: hidden;
 }
 
@@ -202,6 +203,34 @@ a {
 
     @media (min-width: $desktop) {
       height: 72px;
+    }
+  }
+}
+
+.bg-circle {
+  position: absolute;
+  z-index: -999;
+
+  &--violet {
+    top: 50%;
+    right: -150px;
+    width: 400px;
+    transform: translateY(-50%) rotate(20deg);
+    z-index: -999;
+
+    @media (min-width: $desktop) {
+      right: 50px;
+    }
+  }
+
+  &--green {
+    top: 75%;
+    right: 190px;
+    width: 200px;
+    transform: translateY(-50%) rotate(-20deg);
+
+    @media (min-width: $desktop) {
+      right: 440px;
     }
   }
 }
