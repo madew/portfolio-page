@@ -6,7 +6,7 @@ let observer = new IntersectionObserver(
       toggleActiveClassToMenuLink(entry);
     });
   },
-  { threshold: 0.25 }
+  { threshold: 0 }
 );
 
 function toggleActiveClassToMenuLink(entry) {

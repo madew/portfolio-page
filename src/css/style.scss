@@ -15,6 +15,7 @@ body {
   color: $headline;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  width: 100%;
   // overflow-y: hidden;
 }
 
@@ -34,6 +35,8 @@ a {
 .wrapper {
   margin: 0 auto;
   padding-top: 24px;
+  overflow-x: hidden;
+  position: relative;
 
   @media (min-width: $desktop) {
     margin: 0 auto;
@@ -83,26 +86,60 @@ a {
 }
 
 .nav {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  // left: -100%;
+  z-index: 999;
+  background: #16161a;
+  width: 80%;
+  height: 100vh;
+  transform: translateX(-100vh);
+  transition: transform 0.3s ease-in;
+  &.open {
+    transform: translateX(0);
+  }
+
   @media (min-width: $desktop) {
+    transform: unset;
+    position: initial;
     display: block;
     flex: 1;
   }
 
   &__list {
-    position: fixed;
-    top: 48px;
+    position: relative;
+    text-align: center;
+    top: unset;
+    padding: 20px;
+
+    @media (min-width: $desktop) {
+      position: fixed;
+      top: 48px;
+      text-align: left;
+    }
   }
 
   &__item:not(:last-child) {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    @media (min-width: $desktop) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__link {
-    font-size: 1.125rem;
-    color: $secondary;
+    font-size: 2rem;
+    color: $main;
     text-decoration: none;
     transition: color 0.5s ease;
+
+    @media (min-width: $desktop) {
+      font-size: 1.125rem;
+      color: $secondary;
+    }
+
     &:hover {
       color: $tertiary;
     }
@@ -131,7 +168,6 @@ a {
     & span {
       color: $highlight;
       margin-left: 3px;
-      //transition: color 0.5s ease;
     }
     &:hover {
       & span {
@@ -141,19 +177,55 @@ a {
   }
 
   &__cta {
-    button {
+    a {
       font-size: 1.15rem;
       color: $button;
       text-decoration: underline;
       transition: color 0.5s ease;
-      border: none;
-      background: none;
       &:hover {
         color: $tertiary;
       }
 
       @media (min-width: $desktop) {
         font-size: 1rem;
+      }
+    }
+  }
+
+  &__menu-btn {
+    display: relative;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+
+    @media (min-width: $desktop) {
+      display: none;
+    }
+
+    span.line {
+      width: 50px;
+      height: 30px;
+      border-bottom: 3px solid #fff;
+      display: block;
+      position: fixed;
+      top: 28px;
+      z-index: 999;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #fff;
+      }
+
+      &::before {
+        width: 30px;
+        bottom: 23px;
+      }
+
+      &::after {
+        width: 40px;
+        bottom: 10px;
       }
     }
   }
@@ -176,6 +248,7 @@ a {
 .hero {
   padding-top: 100px;
   height: calc(100vh - 48px - (2rem + 6px) - 1.75rem);
+  position: relative;
 
   &__heading {
     color: $main;
@@ -219,7 +292,7 @@ a {
     z-index: -999;
 
     @media (min-width: $desktop) {
-      right: 50px;
+      right: 0px;
     }
   }
 
@@ -583,6 +656,7 @@ a {
         outline: none;
         border: none;
         color: $main;
+        font-family: inherit;
         font-size: 1.35rem;
         font-weight: 100;
         border-bottom: 1px solid #434547;
