@@ -91,12 +91,11 @@ a {
   align-items: center;
   position: fixed;
   top: 0;
-  // left: -100%;
   z-index: 999;
   background: #16161a;
   width: 80%;
   height: 100vh;
-  transform: translateX(-100vh);
+  transform: translateX(-100vw);
   transition: transform 0.3s ease-in;
   &.open {
     transform: translateX(0);
@@ -148,6 +147,10 @@ a {
 
 .content {
   padding: 0 1.25rem;
+
+  @media (min-width: $tablet) {
+    padding: 0 3.25rem;
+  }
 
   @media (min-width: $desktop) {
     padding: 0;
@@ -261,6 +264,10 @@ a {
     position: relative;
     z-index: 10;
 
+    @media (min-width: $tablet) {
+      font-size: 5.7rem;
+    }
+
     @media (min-width: $desktop) {
       font-size: 4rem;
     }
@@ -272,6 +279,10 @@ a {
     width: 100%;
     & span {
       position: absolute;
+    }
+
+    @media (min-width: $tablet) {
+      height: 105px;
     }
 
     @media (min-width: $desktop) {
@@ -319,7 +330,7 @@ a {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: $desktop) {
+    @media (min-width: $tablet) {
       flex-direction: row;
     }
 
@@ -337,7 +348,12 @@ a {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
 
+    @media (min-width: $tablet) {
+      flex: 1;
+    }
+
     @media (min-width: $desktop) {
+      flex: 2;
       font-size: 1rem;
       margin-bottom: 0;
     }
@@ -372,7 +388,7 @@ a {
   &__wrap {
     column-count: 1;
 
-    @media (min-width: $desktop) {
+    @media (min-width: $tablet) {
       column-count: 2;
       column-gap: 40px;
     }
@@ -387,7 +403,7 @@ a {
       width: 100%;
     }
 
-    @media (min-width: $desktop) {
+    @media (min-width: $tablet) {
       &:nth-child(4) {
         margin-top: 60px;
       }
@@ -460,7 +476,11 @@ a {
 .contact {
   background-color: $background-secondary;
   margin-top: 120px;
-  padding: 120px 1.25rem;
+  padding: 120px 1.25rem 60px;
+
+  @media (min-width: $tablet) {
+    padding: 120px 3.25rem 60px;
+  }
 
   @media (min-width: $desktop) {
     padding: 120px 0;

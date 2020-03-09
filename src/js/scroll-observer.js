@@ -1,12 +1,12 @@
 const links = document.querySelectorAll('.nav__link');
 
 let observer = new IntersectionObserver(
-  (entries, observer) => {
+  entries => {
     entries.forEach(entry => {
       toggleActiveClassToMenuLink(entry);
     });
   },
-  { threshold: 0 }
+  { threshold: 0, rootMargin: '50px 0px -150px 0px' }
 );
 
 function toggleActiveClassToMenuLink(entry) {
