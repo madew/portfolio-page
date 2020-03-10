@@ -12,7 +12,6 @@ let observer = new IntersectionObserver(
 function toggleActiveClassToMenuLink(entry) {
   if (entry.isIntersecting) {
     const id = entry.target.getAttribute('id');
-    //console.log(id);
 
     links.forEach(link => {
       if (link.hash === `#${id}`) {

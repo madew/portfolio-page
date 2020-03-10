@@ -9,5 +9,6 @@ button.addEventListener('click', e => {
 menu.addEventListener('click', e => {
   if (menu.classList.contains('open') && e.target.className === 'nav__link') {
     menu.classList.remove('open');
+    button.classList.remove('open');
   }
 });

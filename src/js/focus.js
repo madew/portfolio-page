@@ -16,7 +16,5 @@ function goToSectionOnClick(e, link) {
     behavior: 'smooth',
   });
 
-  if (link.attributes.href.value === '#contact') {
-    input.focus();
-  }
+  link.attributes.href.value === '#contact' ? input.focus() : null;
 }
