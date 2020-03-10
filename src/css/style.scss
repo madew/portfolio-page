@@ -196,11 +196,37 @@ a {
     }
   }
 
-  &__menu-btn {
-    display: relative;
+  &__menu-btn-wrap {
+    position: relative;
     width: 50px;
-    height: 30px;
+    height: 47px;
+    display: block;
+
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  &__menu-btn {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 47px;
     cursor: pointer;
+    top: 26px;
+    z-index: 999;
+
+    &.open > span.line {
+      transform: rotate(315deg);
+    }
+
+    &.open > span.line::after {
+      transform: scaleX(0);
+    }
+
+    &.open > span.line::before {
+      transform: rotate(-90deg) translate(-13px, 0);
+    }
 
     @media (min-width: $desktop) {
       display: none;
@@ -208,28 +234,30 @@ a {
 
     span.line {
       width: 50px;
-      height: 30px;
+      margin: 25px 0;
       border-bottom: 3px solid #fff;
       display: block;
-      position: fixed;
-      top: 28px;
-      z-index: 999;
+      position: relative;
+      transition: all 0.3s ease-out;
 
       &::before,
       &::after {
         position: absolute;
         content: '';
         border-bottom: 3px solid #fff;
+        transition: all 0.3s ease-in-out;
+        width: 50px;
       }
 
       &::before {
-        width: 30px;
-        bottom: 23px;
+        // width: 30px;
+        bottom: 12px;
+        transform-origin: bottom;
       }
 
       &::after {
-        width: 40px;
-        bottom: 10px;
+        // width: 40px;
+        bottom: -18px;
       }
     }
   }
