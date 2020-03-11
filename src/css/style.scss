@@ -16,7 +16,7 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   width: 100%;
-  // overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 li {
@@ -29,6 +29,10 @@ a {
 
 .active {
   color: $highlight !important;
+}
+
+.blockedScrollY {
+  overflow-y: hidden;
 }
 
 // main css
@@ -51,13 +55,13 @@ a {
   height: 100vh;
   position: absolute;
   width: 100%;
-  z-index: 8;
+  z-index: 9;
 
   &__line {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    width: 100vw;
     background: $main;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -80,7 +84,7 @@ a {
     }
 
     @media (min-width: $desktop) {
-      width: 33.3333%;
+      width: 33.3333vw;
     }
   }
 }
@@ -106,6 +110,7 @@ a {
     position: initial;
     display: block;
     flex: 1;
+    z-index: unset;
   }
 
   &__list {
@@ -182,24 +187,27 @@ a {
 
   &__cta {
     a {
+      display: none;
       font-size: 1.15rem;
       color: $button;
       text-decoration: underline;
       transition: color 0.5s ease;
+
       &:hover {
         color: $tertiary;
       }
 
       @media (min-width: $desktop) {
         font-size: 1rem;
+        display: inline-block;
       }
     }
   }
 
   &__menu-btn-wrap {
     position: relative;
-    width: 50px;
-    height: 47px;
+    width: 30px;
+    height: 30px;
     display: block;
 
     @media (min-width: $desktop) {
@@ -210,10 +218,10 @@ a {
   &__menu-btn {
     display: block;
     position: fixed;
-    width: 50px;
-    height: 47px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    top: 26px;
+    top: 28px;
     z-index: 999;
 
     &.open > span.line {
@@ -225,7 +233,7 @@ a {
     }
 
     &.open > span.line::before {
-      transform: rotate(-90deg) translate(-13px, 0);
+      transform: rotate(-90deg) translate(-8px, 1px);
     }
 
     @media (min-width: $desktop) {
@@ -233,9 +241,9 @@ a {
     }
 
     span.line {
-      width: 50px;
-      margin: 25px 0;
-      border-bottom: 3px solid #fff;
+      width: 30px;
+      margin: 15px 0;
+      border-bottom: 2px solid #fff;
       display: block;
       position: relative;
       transition: all 0.3s ease-out;
@@ -244,19 +252,18 @@ a {
       &::after {
         position: absolute;
         content: '';
-        border-bottom: 3px solid #fff;
+        border-bottom: 2px solid #fff;
         transition: all 0.3s ease-in-out;
-        width: 50px;
+        width: 30px;
       }
 
       &::before {
-        // width: 30px;
-        bottom: 12px;
+        bottom: 6px;
         transform-origin: bottom;
       }
 
       &::after {
-        bottom: -18px;
+        bottom: -10px;
       }
     }
   }
